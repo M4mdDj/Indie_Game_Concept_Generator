@@ -1,0 +1,113 @@
+<html><head><base href="https://indiegameconceptgenerator.com">
+<title>Indie Game Concept Generator</title>
+<style>
+  body {
+    font-family: 'Courier New', monospace;
+    background-color: #1a1a1a;
+    color: #00ff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+  .container {
+    text-align: center;
+    background-color: #000;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00ff00;
+  }
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 5px #00ff00;
+  }
+  #concept {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  button {
+    background-color: #00ff00;
+    color: #000;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  button:hover {
+    background-color: #000;
+    color: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+  }
+  .matrix-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+  }
+  .matrix-column {
+    position: absolute;
+    top: -100%;
+    width: 1px;
+    height: 100%;
+    background-image: linear-gradient(
+      0deg,
+      rgba(0, 255, 0, 0) 0%,
+      #00ff00 75%,
+      #00ff00 100%
+    );
+    animation: fall 20s infinite linear;
+  }
+  @keyframes fall {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100vh);
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="matrix-bg">
+    <div class="matrix-column" style="left: 5%; animation-delay: 2s;"></div>
+    <div class="matrix-column" style="left: 15%; animation-delay: 4s;"></div>
+    <div class="matrix-column" style="left: 25%; animation-delay: 6s;"></div>
+    <div class="matrix-column" style="left: 35%; animation-delay: 8s;"></div>
+    <div class="matrix-column" style="left: 45%; animation-delay: 10s;"></div>
+    <div class="matrix-column" style="left: 55%; animation-delay: 12s;"></div>
+    <div class="matrix-column" style="left: 65%; animation-delay: 14s;"></div>
+    <div class="matrix-column" style="left: 75%; animation-delay: 16s;"></div>
+    <div class="matrix-column" style="left: 85%; animation-delay: 18s;"></div>
+    <div class="matrix-column" style="left: 95%; animation-delay: 20s;"></div>
+  </div>
+  <div class="container">
+    <h1>Indie Game Concept Generator</h1>
+    <p id="concept">Click the button to generate a unique indie game concept!</p>
+    <button onclick="generateConcept()">Generate Concept</button>
+  </div>
+
+  <script>
+    const genres = ['platformer', 'puzzle', 'roguelike', 'metroidvania', 'visual novel', 'rhythm', 'survival', 'strategy', 'RPG', 'adventure'];
+    const themes = ['cyberpunk', 'steampunk', 'post-apocalyptic', 'fantasy', 'sci-fi', 'horror', 'noir', 'surrealism', 'historical', 'mythological'];
+    const mechanics = ['time manipulation', 'gravity shifting', 'shape-shifting', 'mind control', 'dimension hopping', 'element bending', 'shadow manipulation', 'probability manipulation', 'telekinesis', 'reality warping'];
+    const twists = ['but everything is made of food', 'in a world where colors are alive', 'where music shapes the environment', 'but you play as the villain', 'in a microscopic world', 'where dreams and reality intertwine', 'but time flows backwards', 'in a universe made entirely of paper', 'where emotions have physical form', 'but every character is an inanimate object'];
+
+    function generateConcept() {
+      const genre = genres[Math.floor(Math.random() * genres.length)];
+      const theme = themes[Math.floor(Math.random() * themes.length)];
+      const mechanic = mechanics[Math.floor(Math.random() * mechanics.length)];
+      const twist = twists[Math.floor(Math.random() * twists.length)];
+
+      const concept = `A ${genre} game set in a ${theme} world, featuring ${mechanic} as the core gameplay mechanic, ${twist}.`;
+      document.getElementById('concept').innerText = concept;
+    }
+  </script>
+</body></html>
